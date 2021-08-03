@@ -1,0 +1,24 @@
+PODS:
+  - Hero (1.6.1)
+  - SGSwiftExtensions (0.0.3)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Hero
+  - SGSwiftExtensions
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Hero
+    - SGSwiftExtensions
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
+  SGSwiftExtensions: ece618e8185ef9542da92c6738fe2e0296c6b1df
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: b9226c6f92bd77095aa317b5245c31f44ff19300
+
+COCOAPODS: 1.10.1

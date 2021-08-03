@@ -22,6 +22,12 @@
 		9299DDBB26B99BA00086FC69 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDBA26B99BA00086FC69 /* Mock.swift */; };
 		9299DDBD26B9A3050086FC69 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDBC26B9A3050086FC69 /* Product.swift */; };
 		9299DDBF26B9A50B0086FC69 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDBE26B9A50B0086FC69 /* Colors.swift */; };
+		9299DDC726B9AD840086FC69 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDC626B9AD840086FC69 /* MainViewController.swift */; };
+		9299DDC926B9ADE50086FC69 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDC826B9ADE50086FC69 /* HorizontalScrollView.swift */; };
+		9299DDCB26B9B2260086FC69 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDCA26B9B2260086FC69 /* Category.swift */; };
+		9299DDCD26B9B5C80086FC69 /* CategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDCC26B9B5C80086FC69 /* CategoriesListView.swift */; };
+		9299DDCF26B9B5D30086FC69 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDCE26B9B5D30086FC69 /* CategoryView.swift */; };
+		9299DDD126B9B6080086FC69 /* VerticalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DDD026B9B6080086FC69 /* VerticalScrollView.swift */; };
 		D06411D115D0570639EFB3D7 /* Pods_grocery_groceryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F593B7594D9065CFEC2A6D3 /* Pods_grocery_groceryUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,12 @@
 		9299DDBA26B99BA00086FC69 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		9299DDBC26B9A3050086FC69 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		9299DDBE26B9A50B0086FC69 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9299DDC626B9AD840086FC69 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9299DDC826B9ADE50086FC69 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
+		9299DDCA26B9B2260086FC69 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9299DDCC26B9B5C80086FC69 /* CategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListView.swift; sourceTree = "<group>"; };
+		9299DDCE26B9B5D30086FC69 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		9299DDD026B9B6080086FC69 /* VerticalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollView.swift; sourceTree = "<group>"; };
 		A6020C02C18405D68FE0EAC9 /* Pods-grocery-groceryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery-groceryUITests.debug.xcconfig"; path = "Target Support Files/Pods-grocery-groceryUITests/Pods-grocery-groceryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABC585EC323F40123DB803A8 /* Pods-grocery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery.release.xcconfig"; path = "Target Support Files/Pods-grocery/Pods-grocery.release.xcconfig"; sourceTree = "<group>"; };
 		AC81817D48AABBACC87D5719 /* Pods-grocery-groceryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery-groceryUITests.release.xcconfig"; path = "Target Support Files/Pods-grocery-groceryUITests/Pods-grocery-groceryUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				9299DDB826B995D60086FC69 /* ProductView.swift */,
+				9299DDC826B9ADE50086FC69 /* HorizontalScrollView.swift */,
+				9299DDD026B9B6080086FC69 /* VerticalScrollView.swift */,
+				9299DDCC26B9B5C80086FC69 /* CategoriesListView.swift */,
+				9299DDCE26B9B5D30086FC69 /* CategoryView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -206,6 +222,7 @@
 			children = (
 				9299DD8A26B7EDCE0086FC69 /* ProductsListViewController.swift */,
 				9299DDB626B896A90086FC69 /* ProductViewController.swift */,
+				9299DDC626B9AD840086FC69 /* MainViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				9299DDBC26B9A3050086FC69 /* Product.swift */,
+				9299DDCA26B9B2260086FC69 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -472,11 +490,17 @@
 				9299DDB926B995D60086FC69 /* ProductView.swift in Sources */,
 				9299DDBF26B9A50B0086FC69 /* Colors.swift in Sources */,
 				9299DD8B26B7EDCE0086FC69 /* ProductsListViewController.swift in Sources */,
+				9299DDC926B9ADE50086FC69 /* HorizontalScrollView.swift in Sources */,
 				9299DDB726B896A90086FC69 /* ProductViewController.swift in Sources */,
+				9299DDD126B9B6080086FC69 /* VerticalScrollView.swift in Sources */,
+				9299DDCF26B9B5D30086FC69 /* CategoryView.swift in Sources */,
 				9299DD8726B7EDCE0086FC69 /* AppDelegate.swift in Sources */,
 				9299DD8926B7EDCE0086FC69 /* SceneDelegate.swift in Sources */,
+				9299DDC726B9AD840086FC69 /* MainViewController.swift in Sources */,
+				9299DDCD26B9B5C80086FC69 /* CategoriesListView.swift in Sources */,
 				9299DDBB26B99BA00086FC69 /* Mock.swift in Sources */,
 				9299DDBD26B9A3050086FC69 /* Product.swift in Sources */,
+				9299DDCB26B9B2260086FC69 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

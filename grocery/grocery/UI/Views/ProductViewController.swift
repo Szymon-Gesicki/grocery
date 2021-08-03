@@ -35,9 +35,9 @@ class ProductViewController: UIViewController {
         background.backgroundColor = product.backgroundColor
         background.layer.cornerRadius = 25
 
-        image.image = imageWithImage(sourceImage: UIImage(named: product.image)!, scaledToWidth: 160.0)
+        image.image = UIImage(named: product.image)?.scale(scaledToWidth: 160)
 
-        backButton.setImage(UIImage(named: "back-2"), for: .normal)
+        backButton.setImage(UIImage(named: "back"), for: .normal)
         backButton.addTarget(self, action: #selector(didPressBackButton), for: .touchUpInside)
 
         view.addSubview(background)
@@ -46,8 +46,6 @@ class ProductViewController: UIViewController {
             make.right.equalTo(view.snp.right)
             make.top.equalTo(view.snp.top)
             make.bottom.equalTo(view.snp.bottom)
-
-//            make.height.equalTo(280)
         }
         
         background.addSubview(image)
@@ -59,7 +57,7 @@ class ProductViewController: UIViewController {
         background.addSubview(backButton)
         backButton.snp.makeConstraints { make in
             make.left.equalTo(background.snp.left).offset(24)
-            make.top.equalTo(background.snp.top).offset(48)
+            make.top.equalTo(background.snp.top).offset(64)
         }
     }
     
@@ -90,19 +88,5 @@ class ProductViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    // remove
-    func imageWithImage (sourceImage:UIImage, scaledToWidth: CGFloat) -> UIImage {
-        let oldWidth = sourceImage.size.width
-        let scaleFactor = scaledToWidth / oldWidth
-
-        let newHeight = sourceImage.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
-
-        UIGraphicsBeginImageContext(CGSize(width:newWidth, height:newHeight))
-        sourceImage.draw(in: CGRect(x:0, y:0, width:newWidth, height:newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
 }
 

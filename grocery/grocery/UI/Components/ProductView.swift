@@ -17,8 +17,8 @@ class ProductView: UIView {
     private var delegate: ProductViewDelegate?
     private var product: Product?
     
-    var height = 140.0
-    var width = 150
+    private var height = 140.0
+    private var width = 150
     
     func create(delegate: ProductViewDelegate, product: Product) {
         self.delegate = delegate
@@ -44,7 +44,7 @@ class ProductView: UIView {
     }
     
     private func appendImage(product: Product) {
-        let imageView = UIImageView(image: UIImage(named: product.image))
+        let imageView = UIImageView(image: UIImage(named: product.image)?.scale(scaledToWidth: 70))
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.centerX.equalTo(snp.centerX)

@@ -1,16 +1,16 @@
 //
-//  ProductListViewController.swift
+//  MainViewController.swift
 //  grocery
 //
-//  Created by Szymon Gęsicki on 02/08/2021.
+//  Created by Szymon Gęsicki on 03/08/2021.
 //
 
 import UIKit
-import SnapKit
+import Foundation
 import SGSwiftExtensions
 
 
-class ProductListViewController: UIViewController, ProductViewDelegate {
+class MainViewController: UIViewController, ProductViewDelegate, CategoryViewDelegate {
     
     // -- ProductViewDelegate --
     func didPressProduct(product: Product) {
@@ -19,32 +19,35 @@ class ProductListViewController: UIViewController, ProductViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func loadFromStoryBoard() -> ProductListViewController? {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "ProductListViewController") as? ProductListViewController
+    // -- CategoryViewDelegate --
+    func didPressCategory(category: Category) {
+        guard let vc = ProductListViewController.loadFromStoryBoard() else { return }
+        vc.category = category
+        navigationController?.pushViewController(vc, animated: true)
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    var category: Category?
-    private var products: [Product] = []
+    private var topProducts = Mock.shared.fetchTopProducts()
     private var stacks: [UIStackView] = []
     private let scrollView = HorizontalScrollView()
+    private let categoriesScroll = HorizontalScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let category = category else { return }
-        products = Mock.shared.fetchProducts(type: category.type)
-        
         view.backgroundColor = UIColor(hex: 0xF6F6F6)
         setupNavigationController()
-        setupScrollView()
         
-        addNavigation()
-        addHeader(title: category.title)
+        setupScrollView()
+        addHeader(title: "Categories")
+        addCategoriesView()
+        // TODO
+        // add categories
+        addHeader(title: "Top Products")
         createContent()
     }
     
@@ -66,12 +69,12 @@ class ProductListViewController: UIViewController, ProductViewDelegate {
     
     private func createContent() {
         
-        for i in 0..<products.count/2 {
-            let product1 = products[i*2]
-            let product2 = products[i*2 + 1]
+        for i in 0..<topProducts.count/2 {
+            let product1 = topProducts[i*2]
+            let product2 = topProducts[i*2 + 1]
 
             let stackView = createStackView()
-            scrollView.append(component: stackView, last: i == products.count/2 - 1)
+            scrollView.append(component: stackView, last: i == topProducts.count/2 - 1)
             
             let productView = ProductView()
             let productView2 = ProductView()
@@ -115,27 +118,17 @@ class ProductListViewController: UIViewController, ProductViewDelegate {
         scrollView.append(component: header, last: false)
     }
     
-    private func addNavigation() {
-        let header = UIView()
-        let backButton = UIButton()
-//        let shopButton = UIButton()
+    private func addCategoriesView() {
+        
+        let stackView = createStackView()
+        scrollView.append(component: stackView, last: false)
 
-        backButton.setImage(UIImage(named: "back"), for: .normal)
-        backButton.addTarget(self, action: #selector(didPressBackButton), for: .touchUpInside)
+        let categories = Mock.shared.fetchCategories()
         
-        header.addSubview(backButton)
-        
-        backButton.snp.makeConstraints { make in
-            make.left.equalTo(header.snp.left)
-            make.top.equalTo(header.snp.top).offset(16)
-            make.bottom.equalTo(header.snp.bottom).offset(16)
+        categories.forEach {
+            let category = CategoryView()
+            stackView.addArrangedSubview(category)
+            category.create(category: $0, delegate: self)
         }
-        scrollView.append(component: header, last: false)
     }
-    
-    @objc private func didPressBackButton() {
-        navigationController?.popViewController(animated: true)
-    }
-
 }
-

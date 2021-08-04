@@ -16,6 +16,7 @@ class MainViewController: UIViewController, ProductViewDelegate, CategoryViewDel
     func didPressProduct(product: Product) {
         guard let vc = ProductViewController.loadFromStoryBoard() else { return }
         vc.product = product
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

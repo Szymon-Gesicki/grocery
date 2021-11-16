@@ -31,6 +31,7 @@ class BasketViewController: UIViewController, BasketProductComponentDelegate {
         groceryScreenSetup()
         setupScrollView()
         addContent()
+        appendOrderButton()
     }
     
     private func reload() {
@@ -73,5 +74,40 @@ class BasketViewController: UIViewController, BasketProductComponentDelegate {
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.create(view: view)
+    }
+    
+    @objc private func didPressOrderButton() {
+        let basketList = BasketService.shared.fetch()
+
+        let message = basketList.isEmpty ? "You have no products in your shopping cart." : "Thank you for your order.\nIt will be sent to the indicated address."
+        
+        let alert = UIAlertController(title: "Order", message: message, preferredStyle: .alert)
+        alert.view.tintColor = UIColor.brand.primaryColor
+        
+        let back = UIAlertAction(title: "Back", style: .cancel, handler: { _ in
+            BasketService.shared.clear()
+            self.reload()
+        })
+        
+        alert.addAction(back)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func appendOrderButton() {
+        let button = PrimaryButton()
+        button.setTitle("Order", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor.brand.primaryColor
+        button.layer.cornerRadius = 20
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
+        button.addTarget(self, action: #selector(didPressOrderButton), for: .touchUpInside)
+        
+        view.addSubview(button)
+        
+        button.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.bottom.equalTo(view.snp.bottom).offset(-120)
+        }
     }
 }

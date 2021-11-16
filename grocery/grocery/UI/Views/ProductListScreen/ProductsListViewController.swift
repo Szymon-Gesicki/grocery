@@ -43,7 +43,6 @@ class ProductListViewController: UIViewController, ProductListComponentDelegate 
         groceryScreenSetup()
         setupScrollView()
         
-        addNavigation()
         addHeader(title: category.title)
         
         scrollView.append(component: productListComponent, last: true)
@@ -57,27 +56,14 @@ class ProductListViewController: UIViewController, ProductListComponentDelegate 
     }
         
     private func addHeader(title: String) {
-        let header = HeaderComponent()
-        header.create(title: title)
-        scrollView.append(component: header, last: false)
-    }
-    
-    private func addNavigation() {
-        let header = UIView()
+        
         let backButton = UIButton()
-//        let shopButton = UIButton()
 
         backButton.setImage(UIImage(named: "back"), for: .normal)
         backButton.addTarget(self, action: #selector(didPressBackButton), for: .touchUpInside)
         
-        header.addSubview(backButton)
-        
-        backButton.snp.makeConstraints { make in
-            make.left.equalTo(header.snp.left)
-            make.top.equalTo(header.snp.top).offset(16)
-            make.bottom.equalTo(header.snp.bottom).offset(16)
-        }
-        
+        let header = HeaderComponent()
+        header.create(title: title, button: backButton)
         scrollView.append(component: header, last: false)
     }
     

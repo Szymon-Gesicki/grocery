@@ -8,13 +8,13 @@
 import UIKit
 import Foundation
 
-protocol ProductViewDelegate {
+protocol ProductViewDelegate: AnyObject {
     func didPressProduct(product: Product)
 }
 
 class ProductView: UIView {
     
-    private var delegate: ProductViewDelegate?
+    private weak var delegate: ProductViewDelegate?
     private var product: Product?
     
     private var height = 140.0

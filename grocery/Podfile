@@ -11,6 +11,7 @@ target 'grocery' do
   pod 'SGSwiftExtensions'
   pod 'RealmSwift'
   pod 'Toast-Swift'
+  pod 'SwiftLint'
 
   target 'groceryTests' do
     inherit! :search_paths

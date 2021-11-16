@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SnapKit
 import SGSwiftExtensions
-
+import SnapKit
 
 class ProductListViewController: UIViewController, ProductListComponentDelegate {
     
@@ -86,4 +85,3 @@ class ProductListViewController: UIViewController, ProductListComponentDelegate 
         navigationController?.popViewController(animated: true)
     }
 }
-

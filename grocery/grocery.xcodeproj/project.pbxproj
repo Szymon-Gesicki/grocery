@@ -359,6 +359,7 @@
 				9299DD8026B7EDCE0086FC69 /* Frameworks */,
 				9299DD8126B7EDCE0086FC69 /* Resources */,
 				926D47AA055B7D18BCD8B0FF /* [CP] Embed Pods Frameworks */,
+				9281D3F026EA915600793536 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -538,6 +539,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-grocery/Pods-grocery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9281D3F026EA915600793536 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		AE0ACBC1C22BFBE0A1489325 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

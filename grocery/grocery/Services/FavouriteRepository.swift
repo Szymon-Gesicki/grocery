@@ -17,25 +17,27 @@ class ProductRealm: Object {
     @Persisted var cost: Double
 }
 
-
 class FavouriteRepository {
     
-    private let realm = try! Realm()
+    private let realm = try? Realm()
 
     func fetch() -> [ProductRealm] {
-        let result = realm.objects(ProductRealm.self)
+        guard let result = realm?.objects(ProductRealm.self) else {
+            print("Error FavouriteRepository.fetch")
+            return []
+        }
         return result.map { $0 }
     }
     
     func append(product: ProductRealm) {
-        try! realm.write {
-            realm.add(product)
+        try? realm?.write {
+            realm?.add(product)
         }
     }
     
     func remove(product: [ProductRealm]) {
-        try! realm.write {
-            realm.delete(product)
+        try? realm?.write {
+            realm?.delete(product)
         }
     }
 }

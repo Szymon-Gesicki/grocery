@@ -9,7 +9,6 @@ import UIKit
 import Foundation
 import SGSwiftExtensions
 
-
 class MainViewController: UIViewController, ProductListComponentDelegate, CategoryViewDelegate {
     
     // -- ProductListComponentDelegate --
@@ -27,7 +26,6 @@ class MainViewController: UIViewController, ProductListComponentDelegate, Catego
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -51,7 +49,6 @@ class MainViewController: UIViewController, ProductListComponentDelegate, Catego
         
         productListComponent.create(products: topProducts, delegate: self)
     }
-    
     
     private func setupScrollView() {
         view.addSubview(scrollView)

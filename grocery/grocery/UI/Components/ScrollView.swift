@@ -5,8 +5,8 @@
 //  Created by Szymon Gęsicki on 03/08/2021.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
 protocol ScrollViewRefreshDelegate: AnyObject {
     func didRefreshList(refreshCompletion: @escaping () -> Void)

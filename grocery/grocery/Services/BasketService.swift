@@ -12,14 +12,11 @@ class BasketService {
     
     private var basketList: [(product: Product, amount: Int)] = []
     
-    
     func add(product: Product) {
-        for (idx, element) in basketList.enumerated() {
-            
-            if element.product.title == product.title {
-                basketList[idx].amount += 1
-                return
-            }
+        
+        for (idx, element) in basketList.enumerated() where element.product.title == product.title {
+            basketList[idx].amount += 1
+            return
         }
         
         basketList.append((product, 1))
@@ -31,11 +28,8 @@ class BasketService {
     
     func remove(product: Product) {
         
-        for (idx, element) in basketList.enumerated() {
-            
-            if element.product.title == product.title {
-                basketList[idx].amount -= 1
-            }
+        for (idx, element) in basketList.enumerated() where element.product.title == product.title {
+            basketList[idx].amount -= 1
         }
 
         basketList.removeAll(where: { $0.amount <= 0 })

@@ -15,7 +15,6 @@ class ProductViewController: UIViewController {
     private let background = UIView()
     private let favouriteButton = UIButton()
 
-
     static func loadFromStoryBoard() -> ProductViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController
@@ -75,7 +74,6 @@ class ProductViewController: UIViewController {
             make.right.equalTo(view.snp.right)
             make.bottom.equalTo(view.snp.bottom).offset(25)
         }
-        
         
         let label = UILabel()
         label.text = product.title
@@ -144,4 +142,3 @@ class ProductViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-

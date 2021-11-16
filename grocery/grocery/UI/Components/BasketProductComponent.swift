@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-protocol BasketProductComponentDelegate {
+protocol BasketProductComponentDelegate: AnyObject {
     func didPressMinusButton(product: Product)
 }
 
 class BasketProductComponent: UIView {
     
-    private var delegate: BasketProductComponentDelegate?
+    private weak var delegate: BasketProductComponentDelegate?
     private var product: Product?
     
     func createProduct(product: Product, amount: Int, delegate: BasketProductComponentDelegate? = nil) {

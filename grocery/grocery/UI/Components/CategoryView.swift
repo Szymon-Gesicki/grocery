@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-protocol CategoryViewDelegate {
+protocol CategoryViewDelegate: AnyObject {
     func didPressCategory(category: Category)
 }
 
@@ -16,10 +16,9 @@ class CategoryView: UIView {
     
     private var width = 60
     private let imageContent = UIView()
-    private var delegate: CategoryViewDelegate?
+    private weak var delegate: CategoryViewDelegate?
     private var category: Category?
 
-    
     func create(category: Category, delegate: CategoryViewDelegate) {
         self.category = category
         self.delegate = delegate
@@ -65,7 +64,6 @@ class CategoryView: UIView {
         }
     }
 
-    
     @objc private func didPressView() {
         guard let category = category else { return }
         delegate?.didPressCategory(category: category)

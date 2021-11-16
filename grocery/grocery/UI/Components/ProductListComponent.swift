@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol ProductListComponentDelegate {
+protocol ProductListComponentDelegate: AnyObject {
     func didPressProduct(product: Product)
 }
 class ProductListComponent: UIView, ProductViewDelegate {
     
     private var products: [Product] = []
     private var components: [UIView] = []
-    private var delegate: ProductListComponentDelegate?
+    private weak var delegate: ProductListComponentDelegate?
     
     func didPressProduct(product: Product) {
         delegate?.didPressProduct(product: product)

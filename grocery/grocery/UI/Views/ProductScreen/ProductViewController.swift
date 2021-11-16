@@ -97,7 +97,6 @@ class ProductViewController: UIViewController {
             make.size.equalTo(32)
         }
         
-        
         let addToBasketButton = UIButton()
         addToBasketButton.layer.cornerRadius = 15
         addToBasketButton.setTitle("Add to basket", for: .normal)
@@ -144,6 +143,5 @@ class ProductViewController: UIViewController {
     @objc private func didPressBackButton() {
         navigationController?.popViewController(animated: true)
     }
-    
 }
 

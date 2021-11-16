@@ -40,8 +40,8 @@ class ProductListViewController: UIViewController, ProductListComponentDelegate 
         guard let category = category else { return }
         products = Mock.shared.fetchProducts(type: category.type)
         
-        view.backgroundColor = UIColor(hex: 0xF6F6F6)
-        setupNavigationController()
+        view.backgroundColor = UIColor.brand.backgroundColor
+        groceryScreenSetup()
         setupScrollView()
         
         addNavigation()
@@ -56,13 +56,7 @@ class ProductListViewController: UIViewController, ProductListComponentDelegate 
         view.addSubview(scrollView)
         scrollView.create(view: view)
     }
-    
-    private func setupNavigationController() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setBackgroundColor(color: UIColor(hex: 0xF6F6F6))
-    }
-    
+        
     private func addHeader(title: String) {
         let header = HeaderComponent()
         header.create(title: title)
@@ -84,12 +78,12 @@ class ProductListViewController: UIViewController, ProductListComponentDelegate 
             make.top.equalTo(header.snp.top).offset(16)
             make.bottom.equalTo(header.snp.bottom).offset(16)
         }
+        
         scrollView.append(component: header, last: false)
     }
     
     @objc private func didPressBackButton() {
         navigationController?.popViewController(animated: true)
     }
-
 }
 

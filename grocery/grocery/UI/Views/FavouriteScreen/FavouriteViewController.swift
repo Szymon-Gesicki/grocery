@@ -10,7 +10,6 @@ import UIKit
 
 class FavouriteViewController: UIViewController, ProductListComponentDelegate {
     
- 
     static func loadFromStoryBoard() -> FavouriteViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "FavouriteViewController") as? FavouriteViewController
@@ -20,7 +19,8 @@ class FavouriteViewController: UIViewController, ProductListComponentDelegate {
     private var favouritiesProducts: [Product] = []
     private let productListComponent = ProductListComponent()
 
-    // -- ProductListComponentDelegate' --
+    // -- ProductListComponentDelegate --
+    
     func didPressProduct(product: Product) {
         guard let vc = ProductViewController.loadFromStoryBoard() else { return }
         vc.product = product
@@ -35,8 +35,8 @@ class FavouriteViewController: UIViewController, ProductListComponentDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(hex: 0xF6F6F6)
-        setupNavigationController()
+        view.backgroundColor = UIColor.brand.backgroundColor
+        groceryScreenSetup()
         favouritiesProducts = FavouriteService.shared.fetchFavouriteProducts()
         setupScrollView()
         addHeader(title: "Favourites")
@@ -49,12 +49,6 @@ class FavouriteViewController: UIViewController, ProductListComponentDelegate {
         productListComponent.reload(products: favouritiesProducts)
     }
     
-    private func setupNavigationController() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setBackgroundColor(color: UIColor(hex: 0xF6F6F6))
-    }
-
     private func addHeader(title: String) {
         let header = HeaderComponent()
         header.create(title: title)
@@ -65,5 +59,4 @@ class FavouriteViewController: UIViewController, ProductListComponentDelegate {
         view.addSubview(scrollView)
         scrollView.create(view: view)
     }
-
 }

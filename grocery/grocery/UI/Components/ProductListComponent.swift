@@ -67,7 +67,7 @@ class ProductListComponent: UIView, ProductViewDelegate {
         addSubview(component)
         
         component.snp.makeConstraints { make in
-            make.left.right.equalTo(self) //.inset(32)
+            make.left.right.equalTo(self)
             
             if let last = components.last {
                 make.top.equalTo(last.snp.bottom).offset(32)
@@ -76,12 +76,11 @@ class ProductListComponent: UIView, ProductViewDelegate {
             }
             
             if last {
-                make.bottom.equalTo(self.snp.bottom)//.offset(-32)
+                make.bottom.equalTo(snp.bottom)
             }
         }
         
         components.append(component)
 
     }
-
 }

@@ -40,8 +40,8 @@ class MainViewController: UIViewController, ProductListComponentDelegate, Catego
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(hex: 0xF6F6F6)
-        setupNavigationController()
+        view.backgroundColor = UIColor.brand.backgroundColor
+        groceryScreenSetup()
         
         setupScrollView()
         addHeader(title: "Categories")
@@ -57,15 +57,8 @@ class MainViewController: UIViewController, ProductListComponentDelegate, Catego
         view.addSubview(scrollView)
         scrollView.create(view: view)
     }
-    
-    private func setupNavigationController() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setBackgroundColor(color: UIColor(hex: 0xF6F6F6))
-    }
-    
-    private func addHeader(title: String) {
         
+    private func addHeader(title: String) {
         let header = HeaderComponent()
         header.create(title: title)
         scrollView.append(component: header, last: false)

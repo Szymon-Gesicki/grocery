@@ -11,6 +11,9 @@
 		8009A184F9B4E646403E5DD0 /* Pods_grocery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CE08722FDF92DA7FC245881 /* Pods_grocery.framework */; };
 		9278174926DA74B200FD976A /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278174826DA74B200FD976A /* FavouriteViewController.swift */; };
 		9278175226DA779F00FD976A /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278175126DA779E00FD976A /* UIColor+extension.swift */; };
+		9278175526DBAD0300FD976A /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278175426DBAD0300FD976A /* BasketViewController.swift */; };
+		9278175726DBEB2800FD976A /* BasketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278175626DBEB2800FD976A /* BasketService.swift */; };
+		9278175926DBF2B300FD976A /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278175826DBF2B300FD976A /* Toast.swift */; };
 		9299DD8726B7EDCE0086FC69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DD8626B7EDCE0086FC69 /* AppDelegate.swift */; };
 		9299DD8926B7EDCE0086FC69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DD8826B7EDCE0086FC69 /* SceneDelegate.swift */; };
 		9299DD8B26B7EDCE0086FC69 /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299DD8A26B7EDCE0086FC69 /* ProductsListViewController.swift */; };
@@ -60,6 +63,9 @@
 		7CE08722FDF92DA7FC245881 /* Pods_grocery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grocery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9278174826DA74B200FD976A /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		9278175126DA779E00FD976A /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		9278175426DBAD0300FD976A /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		9278175626DBEB2800FD976A /* BasketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketService.swift; sourceTree = "<group>"; };
+		9278175826DBF2B300FD976A /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		9299DD8326B7EDCE0086FC69 /* grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9299DD8626B7EDCE0086FC69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9299DD8826B7EDCE0086FC69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,8 +173,17 @@
 			isa = PBXGroup;
 			children = (
 				9278175126DA779E00FD976A /* UIColor+extension.swift */,
+				9278175826DBF2B300FD976A /* Toast.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9278175326DBACEC00FD976A /* BasketScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9278175426DBAD0300FD976A /* BasketViewController.swift */,
+			);
+			path = BasketScreen;
 			sourceTree = "<group>";
 		};
 		9299DD7A26B7EDCE0086FC69 = {
@@ -270,6 +285,7 @@
 		9299DDC426B9A5F70086FC69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9278175326DBACEC00FD976A /* BasketScreen */,
 				9278174D26DA753700FD976A /* FavouriteScreen */,
 				9278174C26DA752B00FD976A /* ProductScreen */,
 				9278174B26DA751500FD976A /* MainScreen */,
@@ -292,6 +308,7 @@
 			children = (
 				92E456A826D41CAA0024F598 /* FavouriteService.swift */,
 				92E456AA26D41CB80024F598 /* FavouriteRepository.swift */,
+				9278175626DBEB2800FD976A /* BasketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -560,9 +577,12 @@
 				92E456AB26D41CB80024F598 /* FavouriteRepository.swift in Sources */,
 				9299DDC726B9AD840086FC69 /* MainViewController.swift in Sources */,
 				9299DDCD26B9B5C80086FC69 /* CategoriesListView.swift in Sources */,
+				9278175926DBF2B300FD976A /* Toast.swift in Sources */,
 				9299DDBB26B99BA00086FC69 /* Mock.swift in Sources */,
+				9278175526DBAD0300FD976A /* BasketViewController.swift in Sources */,
 				92E456A926D41CAA0024F598 /* FavouriteService.swift in Sources */,
 				9299DDBD26B9A3050086FC69 /* Product.swift in Sources */,
+				9278175726DBEB2800FD976A /* BasketService.swift in Sources */,
 				9299DDCB26B9B2260086FC69 /* Category.swift in Sources */,
 				9278175226DA779F00FD976A /* UIColor+extension.swift in Sources */,
 			);

@@ -16,28 +16,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let vc1 = UINavigationController(rootViewController: MainViewController())
-        vc1.tabBarItem.image = UIImage(named: "home")?.scale(scaledToWidth: 25)
+        vc1.tabBarItem.image = barItemIcon(named: "home", width: 25)
 
         let vc2 = UINavigationController(rootViewController: FavouriteViewController())
         vc2.view.backgroundColor = UIColor.white
-        vc2.tabBarItem.image = UIImage(named: "heart")?.scale(scaledToWidth: 25)
+        vc2.tabBarItem.image = barItemIcon(named: "heart", width: 25)
         
-        let vc3 = UIViewController()
+        let vc3 = UINavigationController(rootViewController: BasketViewController())
         vc3.view.backgroundColor = UIColor.white
-        vc3.tabBarItem.image = UIImage(named: "user")?.scale(scaledToWidth: 25)
+        vc3.tabBarItem.image = barItemIcon(named: "receipt-solid", width: 20)
         
-        let vc4 = UIViewController()
-        vc4.view.backgroundColor = UIColor.white
-        vc4.tabBarItem.image = UIImage(named: "user")?.scale(scaledToWidth: 25)
-
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [vc1, vc2, vc3, vc4]
+        tabBarController.viewControllers = [vc1, vc2, vc3]
         tabBarController.tabBar.tintColor = UIColor.brand.primaryColor
         tabBarController.tabBar.unselectedItemTintColor = UIColor.gray
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
+    
+    private func barItemIcon(named: String, width: CGFloat) -> UIImage? {
+        return UIImage(named: named)?.scale(scaledToWidth: width)
+    }
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

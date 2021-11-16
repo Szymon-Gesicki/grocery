@@ -10,6 +10,7 @@ target 'grocery' do
   pod 'Hero'
   pod 'SGSwiftExtensions'
   pod 'RealmSwift'
+  pod 'Toast-Swift'
 
   target 'groceryTests' do
     inherit! :search_paths

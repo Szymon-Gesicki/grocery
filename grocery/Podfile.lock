@@ -7,12 +7,14 @@ PODS:
     - Realm (= 10.12.0)
   - SGSwiftExtensions (0.0.3)
   - SnapKit (5.0.1)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - Hero
   - RealmSwift
   - SGSwiftExtensions
   - SnapKit (~> 5.0.0)
+  - Toast-Swift
 
 SPEC REPOS:
   trunk:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - RealmSwift
     - SGSwiftExtensions
     - SnapKit
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
@@ -28,7 +31,8 @@ SPEC CHECKSUMS:
   RealmSwift: 0abdca6231d5ff8a4f84cef9c1121ef95a483faf
   SGSwiftExtensions: ece618e8185ef9542da92c6738fe2e0296c6b1df
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 5667e48826457c4e88b00f4bff9a685b0eb52e29
+PODFILE CHECKSUM: 21bcc8ca2e516ccea77a5b24a4d73c5483203f6a
 
 COCOAPODS: 1.10.1

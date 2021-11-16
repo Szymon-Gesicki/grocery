@@ -97,6 +97,21 @@ class ProductViewController: UIViewController {
             make.size.equalTo(32)
         }
         
+        
+        let addToBasketButton = UIButton()
+        addToBasketButton.layer.cornerRadius = 15
+        addToBasketButton.setTitle("Add to basket", for: .normal)
+        addToBasketButton.setTitleColor(UIColor.white, for: .normal)
+        addToBasketButton.backgroundColor = UIColor.brand.primaryColor
+        addToBasketButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+        addToBasketButton.addTarget(self, action: #selector(didPressAddToBasket), for: .touchUpInside)
+        
+        content.addSubview(addToBasketButton)
+        
+        addToBasketButton.snp.makeConstraints { make in
+            make.centerX.equalTo(content.snp.centerX)
+            make.bottom.equalTo(content.snp.bottom).inset(130)
+        }
     }
     
     private func reloadFavouriteButton() {
@@ -118,6 +133,12 @@ class ProductViewController: UIViewController {
             FavouriteService.shared.append(product: product)
         }
         reloadFavouriteButton()
+    }
+    
+    @objc private func didPressAddToBasket() {
+        guard let product = product else { return }
+        BasketService.shared.add(product: product)
+        Toast.shared.presentToast("Add to basket 1x \(product.title)")
     }
     
     @objc private func didPressBackButton() {

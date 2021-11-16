@@ -1,6 +1,0 @@
-framework module SGSwiftExtensions {
-  umbrella header "SGSwiftExtensions-umbrella.h"
-
-  export *
-  module * { export * }
-}

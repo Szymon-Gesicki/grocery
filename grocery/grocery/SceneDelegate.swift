@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let _ = (scene as? UIWindowScene) else { return }
@@ -18,17 +18,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc1 = UINavigationController(rootViewController: MainViewController())
         vc1.tabBarItem.image = UIImage(named: "home")?.scale(scaledToWidth: 25)
 
-        let vc2 = UIViewController()
+        let vc2 = UINavigationController(rootViewController: FavouriteViewController())
         vc2.view.backgroundColor = UIColor.white
         vc2.tabBarItem.image = UIImage(named: "heart")?.scale(scaledToWidth: 25)
         
         let vc3 = UIViewController()
         vc3.view.backgroundColor = UIColor.white
         vc3.tabBarItem.image = UIImage(named: "user")?.scale(scaledToWidth: 25)
-
+        
+        let vc4 = UIViewController()
+        vc4.view.backgroundColor = UIColor.white
+        vc4.tabBarItem.image = UIImage(named: "user")?.scale(scaledToWidth: 25)
 
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [vc1, vc2, vc3]
+        tabBarController.viewControllers = [vc1, vc2, vc3, vc4]
         tabBarController.tabBar.tintColor = UIColor.brand.primaryColor
         tabBarController.tabBar.unselectedItemTintColor = UIColor.gray
         

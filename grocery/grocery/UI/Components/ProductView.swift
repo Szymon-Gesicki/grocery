@@ -20,7 +20,7 @@ class ProductView: UIView {
     private var height = 140.0
     private var width = 150
     
-    func create(delegate: ProductViewDelegate, product: Product) {
+    func create(delegate: ProductViewDelegate?, product: Product) {
         self.delegate = delegate
         self.product = product
         createView(product: product)
@@ -74,7 +74,7 @@ class ProductView: UIView {
         }
         
         let cost = UILabel()
-        cost.text = "$\(product.cost)"
+        cost.text = product.cost > 0 ? "$\(product.cost)" : ""
         
         labelView.addSubview(cost)
         cost.snp.makeConstraints { make in

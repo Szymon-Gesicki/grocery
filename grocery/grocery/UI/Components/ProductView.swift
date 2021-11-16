@@ -43,7 +43,7 @@ class ProductView: UIView {
         backgroundColor = product.backgroundColor
     }
     
-    private func appendImage(product: Product) {
+    func appendImage(product: Product) {
         let imageView = UIImageView(image: UIImage(named: product.image)?.scale(scaledToWidth: 70))
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -87,4 +87,9 @@ class ProductView: UIView {
         guard let product = product else { return }
         delegate?.didPressProduct(product: product)
     }
+}
+
+class FakeProductView: ProductView {
+    
+    override func appendImage(product: Product) {}
 }

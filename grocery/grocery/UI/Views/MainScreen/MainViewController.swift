@@ -10,9 +10,9 @@ import Foundation
 import SGSwiftExtensions
 
 
-class MainViewController: UIViewController, ProductViewDelegate, CategoryViewDelegate {
+class MainViewController: UIViewController, ProductListComponentDelegate, CategoryViewDelegate {
     
-    // -- ProductViewDelegate --
+    // -- ProductListComponentDelegate --
     func didPressProduct(product: Product) {
         guard let vc = ProductViewController.loadFromStoryBoard() else { return }
         vc.product = product
@@ -36,6 +36,7 @@ class MainViewController: UIViewController, ProductViewDelegate, CategoryViewDel
     private var topProducts = Mock.shared.fetchTopProducts()
     private var stacks: [UIStackView] = []
     private let scrollView = ScrollView()
+    private let productListComponent = ProductListComponent()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,53 +47,15 @@ class MainViewController: UIViewController, ProductViewDelegate, CategoryViewDel
         addHeader(title: "Categories")
         addCategoriesView()
         addHeader(title: "Top Products")
-        createContent()
-    }
-    
-    private func createStackView() -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .equalCentering
-        stackView.spacing = 8
-        return stackView
-    }
-    
-    
-    private func addToStack(stackView: UIStackView, productView: ProductView, product: Product) {
-        stackView.addArrangedSubview(productView)
-        productView.create(delegate: self, product: product)
-    }
-    
-    
-    private func createContent() {
+        scrollView.append(component: productListComponent, last: true)
         
-        for i in 0..<topProducts.count/2 {
-            let product1 = topProducts[i*2]
-            let product2 = topProducts[i*2 + 1]
-
-            let stackView = createStackView()
-            scrollView.append(component: stackView, last: i == topProducts.count/2 - 1)
-            
-            let productView = ProductView()
-            let productView2 = ProductView()
-            
-            stacks.append(stackView)
-            addToStack(stackView: stackView, productView: productView, product: product1)
-            addToStack(stackView: stackView, productView: productView2, product: product2)
-        }
+        productListComponent.create(products: topProducts, delegate: self)
     }
+    
     
     private func setupScrollView() {
         view.addSubview(scrollView)
-        scrollView.create()
-        
-        scrollView.snp.makeConstraints { make in
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
-        }
+        scrollView.create(view: view)
     }
     
     private func setupNavigationController() {
@@ -102,23 +65,15 @@ class MainViewController: UIViewController, ProductViewDelegate, CategoryViewDel
     }
     
     private func addHeader(title: String) {
-        let header = UIView()
-        let label = UILabel()
-        label.text = title
-        label.textColor = UIColor.brand.primaryColor
-        label.font = UIFont.systemFont(ofSize: 24)
-        header.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.left.equalTo(header.snp.left)
-            make.top.equalTo(header.snp.top).offset(16)
-            make.bottom.equalTo(header.snp.bottom).offset(16)
-        }
+        
+        let header = HeaderComponent()
+        header.create(title: title)
         scrollView.append(component: header, last: false)
     }
     
     private func addCategoriesView() {
         
-        let stackView = createStackView()
+        let stackView = StackView.create()
         scrollView.append(component: stackView, last: false)
 
         let categories = Mock.shared.fetchCategories()

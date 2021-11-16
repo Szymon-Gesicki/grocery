@@ -16,7 +16,7 @@ class ScrollView: UIView {
     private var components: [UIView] = []
 
     
-    func create() {
+    func create(view: UIView? = nil) {
         addSubview(scrollView)
         
         scrollView.snp.makeConstraints { make in
@@ -28,6 +28,15 @@ class ScrollView: UIView {
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scrollView)
             make.left.right.equalTo(self)
+        }
+        
+        if let view = view {
+            snp.makeConstraints { make in
+                make.left.equalTo(view.snp.left)
+                make.right.equalTo(view.snp.right)
+                make.top.equalTo(view.snp.top)
+                make.bottom.equalTo(view.snp.bottom)
+            }
         }
     }
     

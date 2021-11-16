@@ -20,10 +20,10 @@ class Mock {
     
     func fetchProducts(type: CategoryType) -> [Product] {
         switch type {
-        case .fruits: return fruits + fruits
-        case .vegetables: return vegetables + vegetables
-        case .drinks: return drinks + drinks
-        case .bakery: return bakery + bakery
+        case .fruits: return fruits
+        case .vegetables: return vegetables
+        case .drinks: return drinks
+        case .bakery: return bakery
         }
     }
     

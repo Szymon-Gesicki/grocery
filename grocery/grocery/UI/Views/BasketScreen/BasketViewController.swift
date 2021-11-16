@@ -17,7 +17,6 @@ class BasketProductComponent: UIView {
     private var delegate: BasketProductComponentDelegate?
     private var product: Product?
     
-    
     func createProduct(product: Product, amount: Int, delegate: BasketProductComponentDelegate? = nil) {
         
         self.delegate = delegate
@@ -34,13 +33,11 @@ class BasketProductComponent: UIView {
         nameLabel.text = "\(product.title)  x\(amount)"
         amountLabel.text = "\((Double(amount) * product.cost).format(".2"))"
         button.setTitle("-", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
         button.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
         
         addSubview(nameLabel)
         addSubview(amountLabel)
         addSubview(button)
-
         
         nameLabel.snp.makeConstraints { make in
             make.left.equalTo(snp.left).offset(16)
@@ -62,12 +59,10 @@ class BasketProductComponent: UIView {
 
     }
     
-    
     @objc func didPressButton() {
         guard let product = product else { return }
         delegate?.didPressMinusButton(product: product)
     }
-
 }
 
 class BasketViewController: UIViewController, BasketProductComponentDelegate {
@@ -126,8 +121,6 @@ class BasketViewController: UIViewController, BasketProductComponentDelegate {
         view.backgroundColor = nil
         view.layer.backgroundColor = backgroundCGColor
     }
-
-
     
     func didPressMinusButton(product: Product) {
         BasketService.shared.remove(product: product)
@@ -169,17 +162,8 @@ class BasketViewController: UIViewController, BasketProductComponentDelegate {
     }
 
     private func addHeader(title: String) {
-        let header = UIView()
-        let label = UILabel()
-        label.text = title
-        label.textColor = UIColor.brand.primaryColor
-        label.font = UIFont.systemFont(ofSize: 24)
-        header.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.left.equalTo(header.snp.left)
-            make.top.equalTo(header.snp.top).offset(16)
-            make.bottom.equalTo(header.snp.bottom).offset(16)
-        }
+        let header = HeaderComponent()
+        header.create(title: title)
         scrollView.append(component: header, last: false)
     }
     
@@ -245,15 +229,6 @@ class BasketViewController: UIViewController, BasketProductComponentDelegate {
     
     private func setupScrollView() {
         view.addSubview(scrollView)
-        scrollView.create()
-        
-        scrollView.snp.makeConstraints { make in
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
-        }
+        scrollView.create(view: view)
     }
-
-
 }

@@ -83,6 +83,14 @@ class ProductViewController: UIViewController {
             make.left.equalTo(content.snp.left).offset(32)
         }
         
+        let cost = UILabel()
+        cost.text = "$ \(product.cost)"
+        content.addSubview(cost)
+        cost.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(16)
+            make.left.equalTo(content.snp.left).offset(32)
+        }
+
         let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
         favouriteButton.setImage(image, for: .normal)
         reloadFavouriteButton()

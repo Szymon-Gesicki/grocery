@@ -15,6 +15,18 @@ class ProductRealm: Object {
     @Persisted var titleColor: String
     @Persisted var title: String
     @Persisted var cost: Double
+    @Persisted var text: String
+    
+    static func from(product: Product) -> ProductRealm {
+        let realmProduct = ProductRealm()
+        realmProduct.image = product.image
+        realmProduct.backgroundColor = product.backgroundColor.codedString!
+        realmProduct.titleColor = product.titleColor.codedString!
+        realmProduct.title = product.title
+        realmProduct.cost = product.cost
+        realmProduct.text = product.text
+        return realmProduct
+    }
 }
 
 class FavouriteRepository {

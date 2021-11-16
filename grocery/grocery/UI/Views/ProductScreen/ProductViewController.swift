@@ -95,6 +95,18 @@ class ProductViewController: UIViewController {
             make.size.equalTo(32)
         }
         
+        let text = UILabel()
+        text.text = product.text
+        text.numberOfLines = 0
+
+        content.addSubview(text)
+        
+        text.snp.makeConstraints { make in
+            make.left.equalTo(content.snp.left).offset(32)
+            make.right.equalTo(content.snp.right).offset(-32)
+            make.top.equalTo(label.snp.bottom).offset(64)
+        }
+        
         let addToBasketButton = UIButton()
         addToBasketButton.layer.cornerRadius = 15
         addToBasketButton.setTitle("Add to basket", for: .normal)

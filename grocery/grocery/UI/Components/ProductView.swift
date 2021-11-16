@@ -5,8 +5,8 @@
 //  Created by Szymon Gęsicki on 03/08/2021.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
 protocol ProductViewDelegate: AnyObject {
     func didPressProduct(product: Product)

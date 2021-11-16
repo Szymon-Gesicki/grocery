@@ -44,7 +44,7 @@ class ProductListComponent: UIView, ProductViewDelegate {
         } else {
             let productView = FakeProductView()
             stackView.addArrangedSubview(productView)
-            productView.create(delegate: nil, product: Product(image: "", backgroundColor: .clear, titleColor: .clear, title: "", cost: 0))
+            productView.create(delegate: nil, product: Product(image: "", backgroundColor: .clear, titleColor: .clear, title: "", cost: 0, text: ""))
         }
     }
 

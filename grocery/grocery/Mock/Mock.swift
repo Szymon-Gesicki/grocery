@@ -29,12 +29,10 @@ class Mock {
     
     func fetchTopProducts() -> [Product] {
         return [
-            Product(image: "tomato", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Tomato", cost: 1.5),
-            Product(image: "pumpkin", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Pumpkin", cost: 1.5),
-            Product(image: "broccoli", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Broccoli", cost: 1.5),
-            Product(image: "beetroot", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Beetroot", cost: 1.5),
-            Product(image: "cauliflower", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Cauliflower", cost: 1.5),
-            Product(image: "eggplant", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Eggplant", cost: 1.5)
+            fruits[(0..<fruits.count).randomElement() ?? 0],
+            vegetables[(0..<vegetables.count).randomElement() ?? 0],
+            drinks[(0..<drinks.count).randomElement() ?? 0],
+            bakery[(0..<bakery.count).randomElement() ?? 0]
         ]
     }
     
@@ -48,40 +46,41 @@ class Mock {
     }
     
     private let vegetables = [
-        Product(image: "tomato", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Tomato", cost: 1.5),
-        Product(image: "pumpkin", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Pumpkin", cost: 1.5),
-        Product(image: "broccoli", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Broccoli", cost: 1.5),
-        Product(image: "beetroot", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Beetroot", cost: 1.5),
-        Product(image: "cauliflower", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Cauliflower", cost: 1.5),
-        Product(image: "eggplant", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Eggplant", cost: 1.5)
+        Product(image: "tomato", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Tomato", cost: 1.5, text: ""),
+        Product(image: "pumpkin", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Pumpkin", cost: 1.5, text: ""),
+        Product(image: "broccoli", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Broccoli", cost: 1.5, text: ""),
+        Product(image: "beetroot", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Beetroot", cost: 1.5, text: ""),
+        Product(image: "cauliflower", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Cauliflower", cost: 1.5, text: ""),
+        Product(image: "eggplant", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Eggplant", cost: 1.5, text: "")
     ]
     
     private let fruits = [
-        Product(image: "watermelon", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Watermelon", cost: 1.5),
-        Product(image: "pineapple", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Pineapple", cost: 1.5),
-        Product(image: "pear", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Pear", cost: 1.5),
-        Product(image: "orange", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Orange", cost: 1.5),
-        Product(image: "grenade", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Grenade", cost: 1.5),
-        Product(image: "blackberry", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Blackberry", cost: 1.5),
-        Product(image: "banana", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Banana", cost: 1.5),
-        Product(image: "apple", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Apple", cost: 1.5)
+        Product(image: "watermelon", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Watermelon", cost: 1.5, text: ""),
+        Product(image: "pineapple", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Pineapple", cost: 1.5, text: ""),
+        Product(image: "pear", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Pear", cost: 1.5, text: ""),
+        Product(image: "orange", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Orange", cost: 1.5, text: ""),
+        Product(image: "grenade", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Grenade", cost: 1.5, text: ""),
+        Product(image: "blackberry", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Blackberry", cost: 1.5, text: ""),
+        Product(image: "banana", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Banana", cost: 1.5, text: ""),
+        Product(image: "apple", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Apple", cost: 1.5, text: "")
     ]
     
     private let drinks = [
-        Product(image: "coffee", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Coffe", cost: 1.5),
-        Product(image: "cola", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Cola", cost: 1.5),
-        Product(image: "drink", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Drink", cost: 1.5),
-        Product(image: "orange_juice", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Orange juice", cost: 1.5),
-        Product(image: "tea", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Tea", cost: 1.5),
-        Product(image: "water", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Water", cost: 1.5)
+        Product(image: "coffee", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Coffe", cost: 1.5, text: ""),
+        Product(image: "cola", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Cola", cost: 1.5, text: ""),
+        Product(image: "drink", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Drink", cost: 1.5, text: ""),
+        Product(image: "orange_juice", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Orange juice", cost: 1.5, text: ""),
+        Product(image: "tea", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Tea", cost: 1.5, text: ""),
+        Product(image: "water", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Water", cost: 1.5, text: "")
     ]
     
     private let bakery = [
-        Product(image: "bread", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Bread", cost: 1.5),
-        Product(image: "cake", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Cake", cost: 1.5),
-        Product(image: "cookie", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Cookie", cost: 1.5),
-        Product(image: "croissant", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Croissant", cost: 1.5),
-        Product(image: "cupcake", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Cupcake", cost: 1.5),
-        Product(image: "donut", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Donut", cost: 1.5)
+        Product(image: "bread", backgroundColor: UIColor(hex: 0xFDA397), titleColor: UIColor(hex: 0xFB9082), title: "Bread", cost: 1.5, text: ""),
+        Product(image: "cake", backgroundColor: UIColor(hex: 0xFFF48F), titleColor: UIColor(hex: 0xFFF7AC), title: "Cake", cost: 1.5, text: ""),
+        Product(image: "cookie", backgroundColor: UIColor(hex: 0xBCFEBF), titleColor: UIColor(hex: 0xCCFFCE), title: "Cookie", cost: 1.5, text: ""),
+        Product(image: "croissant", backgroundColor: UIColor(hex: 0xFBD8E0), titleColor: UIColor(hex: 0xFFEBEF), title: "Croissant", cost: 1.5, text: ""),
+        Product(image: "cupcake", backgroundColor: UIColor(hex: 0xEBF8EE), titleColor: UIColor(hex: 0xFBFEFB), title: "Cupcake", cost: 1.5, text: ""),
+        Product(image: "donut", backgroundColor: UIColor(hex: 0xEEE0F8), titleColor: UIColor(hex: 0xF6EEFC), title: "Donut", cost: 1.5,
+                text: "A doughnut or donut is a type of leavened fried dough. It is popular in many countries and is prepared in various forms as a sweet snack that can be homemade or purchased in bakeries, supermarkets, food stalls, and franchised specialty vendors. 'Doughnut' is the traditional spelling, whilst 'donut' is the simplified version.")
     ]
 }

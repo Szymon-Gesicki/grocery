@@ -55,7 +55,24 @@ class BasketViewController: UIViewController, BasketProductComponentDelegate {
     
     private func addBasketList() {
         let basketList = BasketService.shared.fetch()
-
+        
+        if basketList.isEmpty {
+            createEmptyList()
+        } else {
+            createBasketList(basketList: basketList)
+        }
+    }
+    
+    private func createEmptyList() {
+        let label = UILabel()
+        label.text = "Your shopping cart is empty.\nAdd products to view bill."
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = UIColor.brand.primaryColor
+        scrollView.append(component: label, last: true)
+    }
+    
+    private func createBasketList(basketList: [(product: Product, amount: Int)]) {
         sumView?.removeFromSuperview()
         sumView = SumComponent()
         sumView?.create(products: basketList)

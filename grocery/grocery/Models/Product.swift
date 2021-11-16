@@ -10,12 +10,13 @@ import Foundation
 
 class Product {
     
-    init(image: String, backgroundColor: UIColor, titleColor: UIColor, title: String, cost: Double) {
+    init(image: String, backgroundColor: UIColor, titleColor: UIColor, title: String, cost: Double, text: String) {
         self.image = image
         self.backgroundColor = backgroundColor
         self.titleColor = titleColor
         self.title = title
         self.cost = cost
+        self.text = text
     }
     
     var image: String
@@ -23,4 +24,5 @@ class Product {
     var titleColor: UIColor
     var title: String
     var cost: Double
+    var text: String
 }

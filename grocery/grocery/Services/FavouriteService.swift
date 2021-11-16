@@ -15,16 +15,11 @@ class FavouriteService {
     
     func fetchFavouriteProducts() -> [Product] {
         let result = repository.fetch()
-        return result.map { Product(image: $0.image, backgroundColor: UIColor.color(withCodedString: $0.backgroundColor)!, titleColor: UIColor.color(withCodedString: $0.titleColor)!, title: $0.title, cost: $0.cost) }
+        return result.map { Product(image: $0.image, backgroundColor: UIColor.color(withCodedString: $0.backgroundColor)!, titleColor: UIColor.color(withCodedString: $0.titleColor)!, title: $0.title, cost: $0.cost, text: $0.text) }
     }
     
     func append(product: Product) {
-        let realmProduct = ProductRealm()
-        realmProduct.image = product.image
-        realmProduct.backgroundColor = product.backgroundColor.codedString!
-        realmProduct.titleColor = product.titleColor.codedString!
-        realmProduct.title = product.title
-        realmProduct.cost = product.cost
+        let realmProduct = ProductRealm.from(product: product)
         repository.append(product: realmProduct)
     }
     
